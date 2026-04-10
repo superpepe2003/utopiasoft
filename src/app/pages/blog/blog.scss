@@ -1,5 +1,5 @@
 .blog-page {
-  padding-top: 5rem;
+  padding-top: 6rem;
 
   &__header {
     background: var(--color-surface);
@@ -44,6 +44,12 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-page {
+    padding-top: 5.5rem;
   }
 }
 

@@ -6,13 +6,5 @@
     "tags": ["angular", "typescript", "arquitectura"],
     "excerpt": "Una guía práctica sobre cómo organizo la estructura de carpetas, lazy loading y separación de responsabilidades en proyectos Angular reales.",
     "image": null
-  },
-  {
-    "slug": "nestjs-docker",
-    "title": "Deploy de NestJS con Docker: guía paso a paso",
-    "date": "2026-03-20",
-    "tags": ["nestjs", "docker", "devops"],
-    "excerpt": "Aprende a containerizar tu API NestJS con Docker y docker-compose, con configuración para desarrollo y producción en un solo repositorio.",
-    "image": null
   }
 ]

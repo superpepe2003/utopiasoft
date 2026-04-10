@@ -74,4 +74,4 @@ No existe la estructura perfecta, pero sí existe la que le sirve a tu equipo y 
 
 ---
 
-*¿Tenés preguntas o usás otra estrategia? Escribime por [email](mailto:contacto@utopiasoft.net.ar).*
+*¿Tenés preguntas o usás otra estrategia? Escribime por [email](mailto:pablofretes@gmail.com).*

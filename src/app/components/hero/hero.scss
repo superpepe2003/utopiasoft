@@ -162,7 +162,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    &__content { padding-top: 7rem; }
+    &__content { padding-top: 6rem; }
     &__actions { flex-direction: column; align-items: flex-start; }
     &__scroll { display: none; }
   }
