@@ -1,0 +1,18 @@
+<section class="services section" id="servicios">
+  <div class="container">
+    <h2 class="section-title">Servicios</h2>
+    <p class="section-subtitle">
+      Desarrollo de punta a punta: desde el diseño hasta el deploy en producción.
+    </p>
+
+    <div class="services__grid">
+      @for (service of services; track service.title) {
+        <div class="service-card card">
+          <span class="service-card__icon">{{ service.icon }}</span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

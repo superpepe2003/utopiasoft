@@ -1,0 +1,28 @@
+<section class="portfolio section" id="portfolio">
+  <div class="container">
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-subtitle">
+      Proyectos reales construidos con tecnologías modernas para distintos sectores.
+    </p>
+
+    <!-- Filtros -->
+    <div class="portfolio__filters">
+      @for (f of filters; track f.value) {
+        <button
+          class="portfolio__filter"
+          [class.active]="activeFilter() === f.value"
+          (click)="setFilter(f.value)"
+        >
+          {{ f.label }}
+        </button>
+      }
+    </div>
+
+    <!-- Grid de proyectos -->
+    <div class="portfolio__grid">
+      @for (project of filteredProjects(); track project.id) {
+        <app-portfolio-card [project]="project" />
+      }
+    </div>
+  </div>
+</section>

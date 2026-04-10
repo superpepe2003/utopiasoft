@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+/* ============================================================
+   Variables globales de la paleta extraída del logo
+   ============================================================ */
+:root {
+  --color-navy:       #1B3D72;
+  --color-blue:       #2979FF;
+  --color-blue-light: #448AFF;
+  --color-teal:       #00BCD4;
+  --color-teal-green: #26A69A;
+
+  --color-bg:         #0D1B2A;
+  --color-surface:    #112240;
+  --color-surface-2:  #1A2F50;
+  --color-surface-3:  #243B5E;
+
+  --color-text:       #E8F4FD;
+  --color-text-muted: #8BAFD4;
+  --color-border:     rgba(41, 121, 255, 0.2);
+
+  --gradient-brand:   linear-gradient(135deg, #2979FF 0%, #00BCD4 60%, #26A69A 100%);
+  --gradient-card:    linear-gradient(135deg, #112240 0%, #1A2F50 100%);
+  --shadow-card:      0 4px 32px rgba(0, 0, 0, 0.35);
+  --shadow-glow:      0 0 24px rgba(41, 121, 255, 0.25);
+
+  --border-radius:    12px;
+  --border-radius-sm: 8px;
+  --transition:       0.3s ease;
+}
+
+/* ============================================================
+   Reset y base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color var(--transition);
+  &:hover { color: var(--color-teal); }
+}
+
+ul { list-style: none; }
+
+/* ============================================================
+   Layout helpers
+   ============================================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+}
+
+/* ============================================================
+   Tipografía compartida
+   ============================================================ */
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: 3rem;
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================================================
+   Botones
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  white-space: nowrap;
+
+  &-primary {
+    background: var(--gradient-brand);
+    color: white;
+    box-shadow: 0 4px 16px rgba(41, 121, 255, 0.3);
+    &:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(41, 121, 255, 0.45);
+      color: white;
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+    &:hover {
+      background: rgba(41, 121, 255, 0.12);
+      transform: translateY(-2px);
+      color: var(--color-blue-light);
+    }
+  }
+
+  &-ghost {
+    background: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+    &:hover {
+      color: var(--color-text);
+      border-color: var(--color-blue);
+      background: rgba(41, 121, 255, 0.08);
+    }
+  }
+}
+
+/* ============================================================
+   Tags / badges
+   ============================================================ */
+.tag {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: rgba(41, 121, 255, 0.12);
+  color: var(--color-teal);
+  border: 1px solid rgba(0, 188, 212, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================================
+   Cards
+   ============================================================ */
+.card {
+  background: var(--gradient-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+  }
+}
+
+/* ============================================================
+   Scrollbar personalizado
+   ============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-3);
+  border-radius: 3px;
+  &:hover { background: var(--color-blue); }
+}
+
+/* ============================================================
+   Responsive helpers
+   ============================================================ */
+@media (max-width: 768px) {
+  .section { padding: 3.5rem 0; }
+  .section-title { margin-bottom: 0.5rem; }
+  .section-subtitle { margin-bottom: 2rem; }
+}

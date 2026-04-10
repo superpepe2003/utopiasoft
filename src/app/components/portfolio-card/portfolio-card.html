@@ -1,0 +1,75 @@
+<article
+  class="pcard card"
+  (mouseenter)="startAutoPlay()"
+  (mouseleave)="stopAutoPlay()"
+>
+
+  <!-- Carrusel de imágenes -->
+  <div class="pcard__carousel">
+    @if (hasImages()) {
+      <div class="pcard__slides">
+        @for (img of project.images; track img; let i = $index) {
+          <img
+            [src]="img"
+            [alt]="project.title + ' screenshot ' + (i + 1)"
+            class="pcard__slide"
+            [class.active]="currentIndex() === i"
+            loading="lazy"
+          />
+        }
+      </div>
+
+      <!-- Flecha anterior -->
+      @if (hasMultiple()) {
+        <button class="pcard__arrow pcard__arrow--prev" (click)="prev()">
+          ‹
+        </button>
+        <button class="pcard__arrow pcard__arrow--next" (click)="next()">
+          ›
+        </button>
+
+        <!-- Dots -->
+        <div class="pcard__dots">
+          @for (img of project.images; track img; let i = $index) {
+            <button
+              class="pcard__dot"
+              [class.active]="currentIndex() === i"
+              (click)="goTo(i)"
+              [attr.aria-label]="'Ir a imagen ' + (i + 1)"
+            ></button>
+          }
+        </div>
+      }
+    } @else {
+      <!-- Placeholder para proyectos sin imagen -->
+      <div class="pcard__placeholder">
+        <span>🏛️</span>
+        <p>Proyecto Institucional</p>
+      </div>
+    }
+  </div>
+
+  <!-- Info del proyecto -->
+  <div class="pcard__body">
+    <h3 class="pcard__title">{{ project.title }}</h3>
+    <p class="pcard__desc">{{ project.description }}</p>
+
+    <div class="pcard__stack">
+      @for (tech of project.stack; track tech) {
+        <span class="tag">{{ tech }}</span>
+      }
+    </div>
+
+    @if (project.url) {
+      <a
+        [href]="project.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="pcard__link"
+      >
+        Ver proyecto →
+      </a>
+    }
+  </div>
+
+</article>

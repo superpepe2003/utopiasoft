@@ -1,0 +1,42 @@
+<div class="blog-post-page">
+
+  @if (loading()) {
+    <div class="blog-post-page__loading">
+      <div class="spinner"></div>
+    </div>
+  } @else if (notFound()) {
+    <div class="container blog-post-page__notfound">
+      <h1>Post no encontrado</h1>
+      <p>El artículo que buscás no existe o fue eliminado.</p>
+      <a routerLink="/blog" class="btn btn-outline">← Volver al blog</a>
+    </div>
+  } @else if (post()) {
+    <article class="container blog-post-page__article">
+
+      <header class="blog-post-page__header">
+        <a routerLink="/blog" class="blog-post-page__back">← Dev Notes</a>
+
+        @if (post()!.image) {
+          <img [src]="post()!.image" [alt]="post()!.title" class="blog-post-page__cover" />
+        }
+
+        <div class="blog-post-page__tags">
+          @for (tag of post()!.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+
+        <h1>{{ post()!.title }}</h1>
+        <time>{{ formatDate(post()!.date) }}</time>
+      </header>
+
+      <div class="blog-post-page__content markdown-body" [innerHTML]="post()!.content"></div>
+
+      <footer class="blog-post-page__footer">
+        <a routerLink="/blog" class="btn btn-outline">← Ver todos los posts</a>
+      </footer>
+
+    </article>
+  }
+
+</div>

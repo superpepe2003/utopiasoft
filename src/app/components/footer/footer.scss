@@ -1,0 +1,68 @@
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding-top: 3rem;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  &__brand {
+    img {
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 2px 8px rgba(41, 121, 255, 0.2));
+    }
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 280px;
+    }
+  }
+
+  &__links,
+  &__contact {
+    h4 {
+      color: var(--color-text);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      list-style: none;
+    }
+
+    li a {
+      color: var(--color-text-muted);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+      &:hover { color: var(--color-teal); }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid var(--color-border);
+    padding: 1.25rem 0;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}

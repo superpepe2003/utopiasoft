@@ -1,0 +1,77 @@
+<div class="blog-page">
+  <div class="blog-page__header">
+    <div class="container">
+      <a routerLink="/" class="blog-page__back">← Volver al inicio</a>
+      <h1 class="section-title" style="text-align:left; margin-bottom:0.5rem;">Dev Notes</h1>
+      <p class="section-subtitle" style="text-align:left; margin-left:0; margin-bottom:0;">
+        Artículos técnicos, tips y aprendizajes del día a día.
+      </p>
+    </div>
+  </div>
+
+  <div class="container blog-page__body">
+
+    @if (loading()) {
+      <div class="blog-page__loading">
+        <div class="spinner"></div>
+      </div>
+    } @else {
+
+      <!-- Filtros por tags -->
+      @if (allTags().length > 0) {
+        <div class="blog-page__tags">
+          <button
+            class="tag-filter"
+            [class.active]="activeTag() === null"
+            (click)="setTag(null)"
+          >
+            Todos
+          </button>
+          @for (tag of allTags(); track tag) {
+            <button
+              class="tag-filter"
+              [class.active]="activeTag() === tag"
+              (click)="setTag(tag)"
+            >
+              {{ tag }}
+            </button>
+          }
+        </div>
+      }
+
+      <!-- Posts -->
+      @if (filteredPosts().length === 0) {
+        <p class="blog-page__empty">No hay posts con ese tag.</p>
+      } @else {
+        <div class="blog-page__grid">
+          @for (post of filteredPosts(); track post.slug) {
+            <article class="post-card card">
+              @if (post.image) {
+                <img [src]="post.image" [alt]="post.title" class="post-card__img" loading="lazy" />
+              } @else {
+                <div class="post-card__img-placeholder">📝</div>
+              }
+
+              <div class="post-card__body">
+                <time class="post-card__date">{{ formatDate(post.date) }}</time>
+                <h2 class="post-card__title">{{ post.title }}</h2>
+                <p class="post-card__excerpt">{{ post.excerpt }}</p>
+
+                <div class="post-card__tags">
+                  @for (tag of post.tags; track tag) {
+                    <span class="tag" (click)="setTag(tag)">{{ tag }}</span>
+                  }
+                </div>
+
+                <a [routerLink]="['/blog', post.slug]" class="post-card__link">
+                  Leer artículo →
+                </a>
+              </div>
+            </article>
+          }
+        </div>
+      }
+
+    }
+  </div>
+</div>

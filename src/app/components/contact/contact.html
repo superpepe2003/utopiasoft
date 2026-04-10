@@ -1,0 +1,127 @@
+<section class="contact section" id="contacto">
+  <div class="container">
+    <h2 class="section-title">Hablemos</h2>
+    <p class="section-subtitle">
+      ¿Tenés un proyecto en mente? Contame de qué se trata y te respondo a la brevedad.
+    </p>
+
+    <div class="contact__layout">
+
+      <!-- Info de contacto -->
+      <div class="contact__info">
+        <h3>¿Por dónde empezamos?</h3>
+        <p>
+          Cuéntame tu idea o proyecto y armamos juntos la mejor solución técnica
+          para tu negocio. Sin vueltas, sin burocracia.
+        </p>
+
+        <ul class="contact__channels">
+          <li>
+            <span class="contact__channel-icon">✉️</span>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:contacto@utopiasoft.net.ar">contacto&#64;utopiasoft.net.ar</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact__channel-icon">🐙</span>
+            <div>
+              <strong>GitHub</strong>
+              <a href="https://github.com/pablofretes" target="_blank" rel="noopener noreferrer">
+                github.com/pablofretes
+              </a>
+            </div>
+          </li>
+          <li>
+            <span class="contact__channel-icon">💼</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                Perfil de LinkedIn
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Formulario -->
+      <form class="contact__form card" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+
+        @if (submitted()) {
+          <div class="contact__success">
+            <span>✅</span>
+            <p>¡Tu cliente de email se abrió listo para enviar el mensaje!</p>
+            <button type="button" class="btn btn-ghost" (click)="submitted.set(false)">
+              Enviar otro mensaje
+            </button>
+          </div>
+        } @else {
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Nombre *</label>
+              <input
+                id="name"
+                type="text"
+                [(ngModel)]="form.name"
+                name="name"
+                required
+                placeholder="Tu nombre"
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                id="email"
+                type="email"
+                [(ngModel)]="form.email"
+                name="email"
+                required
+                placeholder="tu@email.com"
+                autocomplete="email"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Asunto *</label>
+            <input
+              id="subject"
+              type="text"
+              [(ngModel)]="form.subject"
+              name="subject"
+              required
+              placeholder="¿Sobre qué querés hablar?"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensaje *</label>
+            <textarea
+              id="message"
+              [(ngModel)]="form.message"
+              name="message"
+              required
+              rows="5"
+              placeholder="Contame tu proyecto, idea o consulta..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="contactForm.invalid"
+          >
+            Enviar mensaje →
+          </button>
+
+          <p class="contact__form-note">
+            Al enviar se abrirá tu cliente de email predeterminado.
+          </p>
+        }
+
+      </form>
+    </div>
+  </div>
+</section>

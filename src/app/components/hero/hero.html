@@ -1,0 +1,52 @@
+<section class="hero" id="inicio">
+  <!-- Fondo animado con partículas -->
+  <div class="hero__bg">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+    <div class="hero__orb hero__orb--3"></div>
+  </div>
+
+  <div class="container hero__content">
+
+    <div class="hero__badge">
+      <span class="hero__badge-dot"></span>
+      Disponible para proyectos
+    </div>
+
+    <h1 class="hero__title">
+      Soluciones digitales<br />
+      que <span class="gradient-text">transforman</span><br />
+      tu negocio
+    </h1>
+
+    <p class="hero__subtitle">
+      Desarrollo web a medida, apps móviles, agentes de IA y sistemas de gestión.<br />
+      Tecnología de primer nivel para empresas, municipios y emprendedores.
+    </p>
+
+    <div class="hero__stack">
+      <span class="tag">Angular</span>
+      <span class="tag">NestJS</span>
+      <span class="tag">.NET Core</span>
+      <span class="tag">Docker</span>
+      <span class="tag">IA / LLMs</span>
+    </div>
+
+    <div class="hero__actions">
+      <button class="btn btn-primary" (click)="scrollToSection('portfolio')">
+        Ver Portfolio →
+      </button>
+      <button class="btn btn-outline" (click)="scrollToSection('contacto')">
+        Hablemos
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Indicador de scroll -->
+  <div class="hero__scroll" (click)="scrollToSection('servicios')">
+    <div class="hero__scroll-mouse">
+      <div class="hero__scroll-wheel"></div>
+    </div>
+  </div>
+</section>

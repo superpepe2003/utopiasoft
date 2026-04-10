@@ -1,0 +1,53 @@
+<section class="blog-preview section" id="blog">
+  <div class="container">
+    <h2 class="section-title">Dev Notes</h2>
+    <p class="section-subtitle">
+      Tips, aprendizajes y artículos técnicos sobre el stack que uso en el día a día.
+    </p>
+
+    @if (loading()) {
+      <div class="blog-preview__loading">
+        <div class="spinner"></div>
+      </div>
+    } @else if (posts().length === 0) {
+      <p class="blog-preview__empty">No hay posts disponibles por el momento.</p>
+    } @else {
+      <div class="blog-preview__grid">
+        @for (post of posts(); track post.slug) {
+          <article class="post-card card">
+            @if (post.image) {
+              <img [src]="post.image" [alt]="post.title" class="post-card__img" loading="lazy" />
+            } @else {
+              <div class="post-card__img-placeholder">
+                <span>📝</span>
+              </div>
+            }
+
+            <div class="post-card__body">
+              <div class="post-card__meta">
+                <time>{{ formatDate(post.date) }}</time>
+              </div>
+
+              <h3 class="post-card__title">{{ post.title }}</h3>
+              <p class="post-card__excerpt">{{ post.excerpt }}</p>
+
+              <div class="post-card__tags">
+                @for (tag of post.tags; track tag) {
+                  <span class="tag">{{ tag }}</span>
+                }
+              </div>
+
+              <a [routerLink]="['/blog', post.slug]" class="post-card__link">
+                Leer más →
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+
+      <div class="blog-preview__cta">
+        <a routerLink="/blog" class="btn btn-outline">Ver todos los posts →</a>
+      </div>
+    }
+  </div>
+</section>

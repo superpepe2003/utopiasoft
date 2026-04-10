@@ -1,0 +1,33 @@
+<nav class="navbar" [class.scrolled]="scrolled()">
+  <div class="container navbar__inner">
+
+    <!-- Logo -->
+    <a class="navbar__logo" routerLink="/">
+      <img src="assets/logo.png" alt="Utopia Soft" />
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="navbar__links" [class.open]="menuOpen()">
+      <li><a (click)="navigateToSection('servicios')">Servicios</a></li>
+      <li><a (click)="navigateToSection('portfolio')">Portfolio</a></li>
+      <li><a (click)="navigateToSection('blog')">Dev Notes</a></li>
+      <li><a (click)="navigateToSection('contacto')">Contacto</a></li>
+      <li>
+        <a routerLink="/blog" class="btn btn-outline btn--sm" (click)="closeMenu()">Blog</a>
+      </li>
+    </ul>
+
+    <!-- Hamburger mobile -->
+    <button class="navbar__hamburger" (click)="toggleMenu()" aria-label="Menú">
+      <span [class.open]="menuOpen()"></span>
+      <span [class.open]="menuOpen()"></span>
+      <span [class.open]="menuOpen()"></span>
+    </button>
+
+  </div>
+</nav>
+
+<!-- Overlay para cerrar menú en mobile -->
+@if (menuOpen()) {
+  <div class="navbar__overlay" (click)="closeMenu()"></div>
+}
