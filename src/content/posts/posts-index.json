@@ -1,10 +1,18 @@
 [
   {
-    "slug": "ejemplo",
+    "slug": "angular-struct",
     "title": "Cómo estructuro mis proyectos Angular en 2025",
     "date": "2026-04-10",
     "tags": ["angular", "typescript", "arquitectura"],
     "excerpt": "Una guía práctica sobre cómo organizo la estructura de carpetas, lazy loading y separación de responsabilidades en proyectos Angular reales.",
+    "image": null
+  },
+  {
+    "slug": "ml-para-mortales",
+    "title": "Machine Learning para Mortales: De formularios en Angular a predicciones con NestJS",
+    "date": "2026-04-25",
+    "tags": ["angular", "typescript", "Machine Learning", "NestJS"],
+    "excerpt": "Descubrí cómo integrar modelos predictivos en tu stack actual de Angular y NestJS sin complicaciones matemáticas. Una guía práctica para transformar datos históricos en decisiones inteligentes.",
     "image": null
   }
 ]

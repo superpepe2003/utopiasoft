@@ -2,7 +2,23 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, from, switchMap, map, catchError, of } from 'rxjs';
 import { marked } from 'marked';
+import { markedHighlight } from 'marked-highlight';
+import hljs from 'highlight.js';
 import { Post, PostMeta } from '../models/post.model';
+
+marked.use(markedHighlight({
+  emptyLangClass: 'hljs',
+  langPrefix: 'hljs language-',
+  highlight(code, lang) {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, { language }).value;
+  }
+}));
+
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
 
 @Injectable({ providedIn: 'root' })
 export class BlogService {
@@ -23,11 +39,26 @@ export class BlogService {
 
   /** Obtiene un post completo por slug */
   getPost(slug: string): Observable<Post | null> {
-    return this.http.get(`content/posts/${slug}.md`, { responseType: 'text' }).pipe(
-      switchMap(rawContent => {
-        const { meta, body } = this.parseFrontmatter(rawContent);
-        return from(Promise.resolve(marked.parse(body))).pipe(
-          map(html => ({ ...meta, slug, content: html as string }) as Post)
+    return this.getPosts().pipe(
+      switchMap(allMeta => {
+        const indexMeta = allMeta.find(p => p.slug === slug);
+        return this.http.get(`content/posts/${slug}.md`, { responseType: 'text' }).pipe(
+          switchMap(rawContent => {
+            const { meta, body } = this.parseFrontmatter(rawContent);
+            // Si el .md no tiene frontmatter con fecha, usamos la del índice
+            const resolvedMeta = {
+              ...meta,
+              title: meta.title || indexMeta?.title || '',
+              date: meta.date || indexMeta?.date || '',
+              tags: meta.tags.length ? meta.tags : (indexMeta?.tags ?? []),
+              excerpt: meta.excerpt || indexMeta?.excerpt || '',
+              image: meta.image ?? indexMeta?.image,
+            };
+            return from(Promise.resolve(marked.parse(body))).pipe(
+              map(html => ({ ...resolvedMeta, slug, content: html as string }) as Post)
+            );
+          }),
+          catchError(() => of(null))
         );
       }),
       catchError(() => of(null))
