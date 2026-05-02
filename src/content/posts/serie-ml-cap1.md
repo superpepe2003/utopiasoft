@@ -70,7 +70,7 @@ print(df.describe())
 ## 4. Manipulación básica con NumPy y Pandas
 Podemos usar NumPy para realizar operaciones rápidas sobre columnas enteras. Por ejemplo, si queremos calcular el promedio de caballos de fuerza el campos "horsepower"
 
-```
+```python
 
 # 1. Valores Faltantes: 
 # En Pandas, podemos llenar los nulos (NaN) con 0 o con el promedio.
@@ -101,7 +101,7 @@ autos_potentes = df[df['horsepower'] > promedio_hp]
 
 Agrego un ejemplo de como convertir un Diccionario Python en un DataFrame de Pandas
 
-```
+```python
 import pandas as pd
 import numpy as np
 
