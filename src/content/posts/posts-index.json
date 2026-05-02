@@ -14,5 +14,13 @@
     "tags": ["angular", "typescript", "Machine Learning", "NestJS"],
     "excerpt": "Descubrí cómo integrar modelos predictivos en tu stack actual de Angular y NestJS sin complicaciones matemáticas. Una guía práctica para transformar datos históricos en decisiones inteligentes.",
     "image": null
+  },
+  {
+    "slug": "serie-ml-cap1",
+    "title": "Machine Learning para Mortales: Python Capítulo 1 - Pandas y Numpy para el análisis de datos",
+    "date": "2026-05-01",
+    "tags": ["python", "Machine Learning", "Pandas", "Numpy"],
+    "excerpt": "Descubrí cómo utilizar Pandas y Numpy para el análisis de datos en Python. Una guía práctica para principiantes en Machine Learning.",
+    "image": null
   }
 ]
