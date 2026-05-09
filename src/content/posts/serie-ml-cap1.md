@@ -50,20 +50,20 @@ Vamos a usar un dataset de vehículos real para que puedas seguir el ejemplo.
 
 > **Nota de Dev:** Usamos la URL "raw" de GitHub para que Pandas reciba el texto plano del CSV y no el HTML de la página.
 ```python
-import pandas as pd
-import numpy as np
+  import pandas as pd
+  import numpy as np
 
-# URL de datos de autos (Cars Dataset)
-url = "https://raw.githubusercontent.com/RodolfoViana/exploratory-data-analysis-dataset-cars/master/cars_multi.csv"
+  # URL de datos de autos (Cars Dataset)
+  url = "https://raw.githubusercontent.com/RodolfoViana/exploratory-data-analysis-dataset-cars/master/cars_multi.csv"
 
-# Cargamos el DataFrame
-df = pd.read_csv(url)
+  # Cargamos el DataFrame
+  df = pd.read_csv(url)
 
-# Vemos las primeras filas y la estructura
-print(df.head())
-print(df.info())
-# Vemos ciertos datos estadisticos
-print(df.describe())
+  # Vemos las primeras filas y la estructura
+  print(df.head())
+  print(df.info())
+  # Vemos ciertos datos estadisticos
+  print(df.describe())
 
 ```
 
@@ -72,51 +72,51 @@ Podemos usar NumPy para realizar operaciones rápidas sobre columnas enteras. Po
 
 ```python
 
-# 1. Valores Faltantes: 
-# En Pandas, podemos llenar los nulos (NaN) con 0 o con el promedio.
-# Vamos a usar NumPy para identificar y Pandas para llenar.
-# También se podría haber realizado con Pandas df['horsepower'].fillna(0)
-df['horsepower'] = df['horsepower'].replace(np.nan, 0)
+  # 1. Valores Faltantes: 
+  # En Pandas, podemos llenar los nulos (NaN) con 0 o con el promedio.
+  # Vamos a usar NumPy para identificar y Pandas para llenar.
+  # También se podría haber realizado con Pandas df['horsepower'].fillna(0)
+  df['horsepower'] = df['horsepower'].replace(np.nan, 0)
 
-# 2. Tipado (Casting):
-# A veces los datos vienen como 'object' (strings) por errores en el CSV.
-# Nos aseguramos de que sean float64 para que NumPy pueda operar.
-df['horsepower'] = df['horsepower'].astype('float64')
+  # 2. Tipado (Casting):
+  # A veces los datos vienen como 'object' (strings) por errores en el CSV.
+  # Nos aseguramos de que sean float64 para que NumPy pueda operar.
+  df['horsepower'] = df['horsepower'].astype('float64')
 
-# Convertimos una Serie de Pandas a un Array de NumPy si necesitamos velocidad
-hp_array = df['horsepower'].to_numpy()
+  # Convertimos una Serie de Pandas a un Array de NumPy si necesitamos velocidad
+  hp_array = df['horsepower'].to_numpy()
 
-# Usamos NumPy para estadísticas rápidas
-promedio_hp = np.mean(hp_array)
-print(f"El promedio de HP es: {promedio_hp}")
+  # Usamos NumPy para estadísticas rápidas
+  promedio_hp = np.mean(hp_array)
+  print(f"El promedio de HP es: {promedio_hp}")
 
-# Limpiamos: ponemos todas las marcas en minúsculas
-df['car_name'] = df['car_name'].str.lower()
+  # Limpiamos: ponemos todas las marcas en minúsculas
+  df['car_name'] = df['car_name'].str.lower()
 
-# También podemos usar Pandas para crear filtros complejos
-# Ejemplo: Filtramos autos que tienen más HP que el promedio. Este filtrado por corchetes se llama Boolean Indexing
-autos_potentes = df[df['horsepower'] > promedio_hp]
+  # También podemos usar Pandas para crear filtros complejos
+  # Ejemplo: Filtramos autos que tienen más HP que el promedio. Este filtrado por corchetes se llama Boolean Indexing
+  autos_potentes = df[df['horsepower'] > promedio_hp]
 
 ```
 
 Agrego un ejemplo de como convertir un Diccionario Python en un DataFrame de Pandas
 
 ```python
-import pandas as pd
-import numpy as np
+  import pandas as pd
+  import numpy as np
 
-# 1. Estructura familiar: Una lista de diccionarios (lo que recibirías de un API)
-datos_usuarios = [
-    {"nombre": "Juan", "edad": 35, "puntaje": 95.5},
-    {"nombre": "Pedro", "edad": 32, "puntaje": np.nan}, # Usamos NumPy para el valor nulo
-    {"nombre": "Hijo", "edad": 10, "puntaje": 88.0}
-]
+  # 1. Estructura familiar: Una lista de diccionarios (lo que recibirías de un API)
+  datos_usuarios = [
+      {"nombre": "Juan", "edad": 35, "puntaje": 95.5},
+      {"nombre": "Pedro", "edad": 32, "puntaje": np.nan}, # Usamos NumPy para el valor nulo
+      {"nombre": "Hijo", "edad": 10, "puntaje": 88.0}
+  ]
 
-# 2. Convertimos a DataFrame
-df_usuarios = pd.DataFrame(datos_usuarios)
-mayores = df_usuarios[df_usuarios['edad']> 18]
+  # 2. Convertimos a DataFrame
+  df_usuarios = pd.DataFrame(datos_usuarios)
+  mayores = df_usuarios[df_usuarios['edad']> 18]
 
-print(f"Tenemos {len(mayores)} personas mayores de edad")
+  print(f"Tenemos {len(mayores)} personas mayores de edad")
 
 ```
 

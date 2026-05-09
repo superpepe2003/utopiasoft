@@ -22,5 +22,13 @@
     "tags": ["python", "Machine Learning", "Pandas", "Numpy"],
     "excerpt": "Descubrí cómo utilizar Pandas y Numpy para el análisis de datos en Python. Una guía práctica para principiantes en Machine Learning.",
     "image": null
+  },
+  {
+    "slug": "serie-ml-cap2",
+    "title": "Machine Learning para Mortales: Python Capítulo 2 - Matplotlib para visualización de datos",
+    "date": "2026-05-10",
+    "tags": ["python", "Machine Learning", "Matplotlib"],
+    "excerpt": "Descubrí cómo utilizar Matplotlib para la visualización de datos en Python. Una guía práctica para principiantes en Machine Learning.",
+    "image": null
   }
 ]

@@ -2,11 +2,12 @@ import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
+import { SafeHtmlDirective } from '../../shared/directives/safe-html.directive';
 import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-blog-post',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SafeHtmlDirective],
   templateUrl: './blog-post.html',
   styleUrl: './blog-post.scss'
 })

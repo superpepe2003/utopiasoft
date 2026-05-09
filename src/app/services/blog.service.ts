@@ -15,6 +15,17 @@ marked.use(markedHighlight({
   }
 }));
 
+// Renderer personalizado para imágenes: asegura rutas absolutas
+const renderer = new marked.Renderer();
+renderer.image = ({ href, title, text }: { href: string; title: string | null; text: string }) => {
+  // Si la ruta no empieza con http ni /, la forzamos a /
+  const src = href.startsWith('http') || href.startsWith('/') ? href : `/${href}`;
+  const titleAttr = title ? ` title="${title}"` : '';
+  return `<img src="${src}" alt="${text}"${titleAttr} style="max-width:100%;border-radius:8px;margin:1.5rem 0;" />`;
+};
+
+marked.use({ renderer });
+
 marked.setOptions({
   gfm: true,
   breaks: true,

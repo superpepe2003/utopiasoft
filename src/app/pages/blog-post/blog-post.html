@@ -30,7 +30,7 @@
         <time>{{ formatDate(post()!.date) }}</time>
       </header>
 
-      <div class="blog-post-page__content markdown-body" [innerHTML]="post()!.content"></div>
+      <div class="blog-post-page__content markdown-body" [rawHtml]="post()!.content"></div>
 
       <footer class="blog-post-page__footer">
         <a routerLink="/blog" class="btn btn-outline">← Ver todos los posts</a>
