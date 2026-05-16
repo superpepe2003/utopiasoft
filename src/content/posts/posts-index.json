@@ -30,5 +30,13 @@
     "tags": ["python", "Machine Learning", "Matplotlib"],
     "excerpt": "Descubrí cómo utilizar Matplotlib para la visualización de datos en Python. Una guía práctica para principiantes en Machine Learning.",
     "image": null
+  },
+  {
+    "slug": "serie-ml-cap3",
+    "title": "Machine Learning para Mortales: Python Capítulo 3 - El Mapa Conceptual de la IA",
+    "date": "2026-05-17",
+    "tags": ["python", "Machine Learning", "conceptos"],
+    "excerpt": "Antes de tirar código, mapeamos el universo de la IA. Descubrí los tipos de aprendizaje (supervisado, no supervisado y por reforzamiento) y cómo elegir el algoritmo correcto para predecir datos.",
+    "image": null
   }
 ]
