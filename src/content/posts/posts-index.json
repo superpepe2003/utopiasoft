@@ -38,5 +38,13 @@
     "tags": ["python", "Machine Learning", "conceptos"],
     "excerpt": "Antes de tirar código, mapeamos el universo de la IA. Descubrí los tipos de aprendizaje (supervisado, no supervisado y por reforzamiento) y cómo elegir el algoritmo correcto para predecir datos.",
     "image": null
+  },
+  {
+    "slug": "serie-ml-cap4",
+    "title": "Machine Learning para Mortales: Python Capítulo 4 - Regresión Lineal",
+    "date": "2026-05-25",
+    "tags": ["python", "Machine Learning", "conceptos"],
+    "excerpt": "Descubrí cómo funciona la regresión lineal, el algoritmo más básico de Machine Learning. Una guía práctica para principiantes en Machine Learning.",
+    "image": null
   }
 ]
