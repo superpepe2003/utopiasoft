@@ -46,5 +46,13 @@
     "tags": ["python", "Machine Learning", "conceptos"],
     "excerpt": "Descubrí cómo funciona la regresión lineal, el algoritmo más básico de Machine Learning. Una guía práctica para principiantes en Machine Learning.",
     "image": null
+  },
+  {
+    "slug": "serie-ml-cap5",
+    "title": "Machine Learning para Mortales: Python Capítulo 5 - Regresión Polinomica",
+    "date": "2026-06-15",
+    "tags": ["python", "Machine Learning", "conceptos"],
+    "excerpt": "Siguiendo con la regresión lineal, cuando las lineas rectas no alcanzan.",
+    "image": null
   }
 ]
